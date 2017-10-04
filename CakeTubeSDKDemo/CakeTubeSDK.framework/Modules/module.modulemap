@@ -1,0 +1,6 @@
+framework module CakeTubeSDK {
+  umbrella header "CakeTubeSDK.h"
+
+  export *
+  module * { export * }
+}

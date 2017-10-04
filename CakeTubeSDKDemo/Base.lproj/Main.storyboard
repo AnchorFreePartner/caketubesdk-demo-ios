@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W3N-1y-dYR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="3Cn-9r-e2m">
+            <objects>
+                <viewController id="W3N-1y-dYR" customClass="ViewController" customModule="HydraSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zGs-zS-zFY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUi-Kp-Djr">
+                                <rect key="frame" x="16" y="36" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="toggleLogin:" destination="W3N-1y-dYR" eventType="touchUpInside" id="aEF-6J-6lS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxA-Kd-1aM">
+                                <rect key="frame" x="16" y="74" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="toggleConnect:" destination="W3N-1y-dYR" eventType="touchUpInside" id="hTA-U9-Jc7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uu1-6s-qlc">
+                                <rect key="frame" x="16" y="112" width="45" height="30"/>
+                                <state key="normal" title="Server"/>
+                                <connections>
+                                    <action selector="changeCountry:" destination="W3N-1y-dYR" eventType="touchUpInside" id="8V6-dj-Qdm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od8-HF-Kff">
+                                <rect key="frame" x="70" y="41" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvX-vT-Ycl">
+                                <rect key="frame" x="70" y="79" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-bd-hOo">
+                                <rect key="frame" x="69" y="117" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traffic limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKr-a1-ck6">
+                                <rect key="frame" x="16" y="626" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traffic I/O stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVE-YI-J5m">
+                                <rect key="frame" x="16" y="597" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="od8-HF-Kff" firstAttribute="centerY" secondItem="tUi-Kp-Djr" secondAttribute="centerY" id="1H4-L5-ons"/>
+                            <constraint firstItem="nvX-vT-Ycl" firstAttribute="leading" secondItem="NxA-Kd-1aM" secondAttribute="trailing" constant="8" id="3we-vy-v99"/>
+                            <constraint firstItem="cKr-a1-ck6" firstAttribute="top" secondItem="iVE-YI-J5m" secondAttribute="bottom" constant="8" id="5Ah-1k-xc8"/>
+                            <constraint firstItem="lG1-nT-cXT" firstAttribute="leading" secondItem="NxA-Kd-1aM" secondAttribute="leading" constant="-16" id="6bo-Ur-Zc2"/>
+                            <constraint firstItem="HWV-bd-hOo" firstAttribute="centerY" secondItem="Uu1-6s-qlc" secondAttribute="centerY" id="Ci4-Iu-UUQ"/>
+                            <constraint firstItem="NxA-Kd-1aM" firstAttribute="top" secondItem="tUi-Kp-Djr" secondAttribute="bottom" constant="8" id="GXO-RW-qRe"/>
+                            <constraint firstItem="lG1-nT-cXT" firstAttribute="top" secondItem="tUi-Kp-Djr" secondAttribute="bottom" constant="-46" id="Gfz-TU-JYN"/>
+                            <constraint firstItem="lG1-nT-cXT" firstAttribute="leading" secondItem="cKr-a1-ck6" secondAttribute="leading" constant="-16" id="LMo-D7-VRP"/>
+                            <constraint firstItem="HWV-bd-hOo" firstAttribute="leading" secondItem="Uu1-6s-qlc" secondAttribute="trailing" constant="8" id="UoB-FJ-KmS"/>
+                            <constraint firstItem="od8-HF-Kff" firstAttribute="leading" secondItem="tUi-Kp-Djr" secondAttribute="trailing" constant="8" id="UoQ-ge-yd7"/>
+                            <constraint firstItem="lG1-nT-cXT" firstAttribute="leading" secondItem="iVE-YI-J5m" secondAttribute="leading" constant="-16" id="dil-BO-q3v"/>
+                            <constraint firstItem="lG1-nT-cXT" firstAttribute="leading" secondItem="tUi-Kp-Djr" secondAttribute="leading" constant="-16" id="gEv-uP-TwT"/>
+                            <constraint firstItem="lG1-nT-cXT" firstAttribute="leading" secondItem="Uu1-6s-qlc" secondAttribute="leading" constant="-16" id="k03-xh-ueG"/>
+                            <constraint firstItem="cKr-a1-ck6" firstAttribute="top" secondItem="lG1-nT-cXT" secondAttribute="bottom" constant="-41" id="pve-rw-Nj1"/>
+                            <constraint firstItem="Uu1-6s-qlc" firstAttribute="top" secondItem="NxA-Kd-1aM" secondAttribute="bottom" constant="8" id="uEU-ya-FcW"/>
+                            <constraint firstItem="nvX-vT-Ycl" firstAttribute="centerY" secondItem="NxA-Kd-1aM" secondAttribute="centerY" id="zDq-Jj-YXA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lG1-nT-cXT"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeCountryButton" destination="Uu1-6s-qlc" id="4eR-3L-zKv"/>
+                        <outlet property="connectButton" destination="NxA-Kd-1aM" id="YOX-ct-A8D"/>
+                        <outlet property="connectionStatus" destination="nvX-vT-Ycl" id="LDh-jR-aUM"/>
+                        <outlet property="countryLabel" destination="HWV-bd-hOo" id="pcp-dy-rsu"/>
+                        <outlet property="loginButton" destination="tUi-Kp-Djr" id="zn5-IN-zoR"/>
+                        <outlet property="loginStatus" destination="od8-HF-Kff" id="vGq-RS-EuW"/>
+                        <outlet property="trafficLimitLabel" destination="cKr-a1-ck6" id="0rm-kh-NuQ"/>
+                        <outlet property="trafficStatsLabel" destination="iVE-YI-J5m" id="AoU-3j-84b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qq8-Wh-nBo" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2" y="1146"/>
+        </scene>
+        <!--Country Controller-->
+        <scene sceneID="nHC-ea-D6J">
+            <objects>
+                <tableViewController storyboardIdentifier="CountryController" id="H59-IK-X70" customClass="CountryController" customModule="HydraSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dui-v0-pWn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefaultCell" id="Wjb-NW-jhA">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wjb-NW-jhA" id="Xf6-GG-V9T">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="H59-IK-X70" id="knA-8L-vdZ"/>
+                            <outlet property="delegate" destination="H59-IK-X70" id="R4r-ai-usa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zQ-K8-bVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="663" y="1146"/>
+        </scene>
+    </scenes>
+</document>
