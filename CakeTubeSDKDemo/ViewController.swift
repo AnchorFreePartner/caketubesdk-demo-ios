@@ -130,15 +130,14 @@ class ViewController: UIViewController, CountryControllerDelegate {
         CakeTube.instance().trafficStats { (counters, e) in
             if let ex = e {
                 print("trafficStats error: \(ex)")
-            } else {
-                print("trafficStats success")
-            }
-            
-            guard let counters = counters else {
                 // NOTE: Counters may not be ready immediately after connection
                 self.perform(#selector(self.updateTrafficStats), with: nil, afterDelay: 5.0)
                 return
             }
+            
+            print("trafficStats success")
+            
+            guard let counters = counters else { return }
         
             let ul = ByteCountFormatter.string(fromByteCount: counters.tx.int64Value, countStyle: .file)
             let dl = ByteCountFormatter.string(fromByteCount: counters.rx.int64Value, countStyle: .file)
@@ -152,9 +151,10 @@ class ViewController: UIViewController, CountryControllerDelegate {
         CakeTube.instance().remainingTraffic { (remainingTraffic, e) in
             if let ex = e {
                 print("remainingTraffic error: \(ex)")
-            } else {
-                print("remainingTraffic success")
+                return;
             }
+            
+            print("remainingTraffic success")
             
             guard let traffic = remainingTraffic else { return }
             if let trafficLimit = traffic.trafficLimit {

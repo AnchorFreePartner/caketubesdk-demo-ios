@@ -12,6 +12,7 @@
 @class CTCredentials;
 @class CTRemainingTraffic;
 @class CTServerLocation;
+@class CTProtocolConfiguration;
 
 extern NSString *_Nonnull const kCTCakeTubeApiErrorDomain;
 
@@ -71,6 +72,8 @@ NS_ASSUME_NONNULL_END
                    complete:(nonnull CTLoginBlock)completion;
 
 - (void)getCredentialsWithCompletion:(nullable CTCredentialsBlock)completion;
+
+- (void)getCredentialsWithConfiguration:(CTProtocolConfiguration *)config completion:(CTCredentialsBlock)completion;
 
 - (void)checkCurrentCredentialsWithCompletion:(nullable void (^)(NSError * _Nullable error))completion;
 

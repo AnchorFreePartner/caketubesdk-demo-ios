@@ -7,11 +7,14 @@
 //
 
 #import "CTConnectionServiceBase.h"
+#import "CTConfig.h"
 
 @class CTServerLocation;
 
 
 @interface CTConnectionService : CTConnectionServiceBase
+
+- (void)setVpnProtocol:(CTVPNProtocol)vpnProtocol;
 
 - (void)connectVPNWithCompletion:(void (^)(CTServerLocation *location, NSError *error))completion;
 @end

@@ -14,9 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        CakeTube.instance().configure(CTConfig(baseUrl: "https://backend.northghost.com", carrierId: "afdemo"))
+        
+        CakeTube.instance().configure(CTConfig.create { (c) in
+            c.baseUrl = "https://backend.northghost.com"
+            c.carrierId = "afdemo"
+        })
+
         return true
     }
 

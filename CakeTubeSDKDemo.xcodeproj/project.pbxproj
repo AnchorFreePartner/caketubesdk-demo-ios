@@ -325,6 +325,7 @@
 					"$(PROJECT_DIR)/CakeTubeSDKDemo",
 				);
 				INFOPLIST_FILE = CakeTubeSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anchorfree.cttestapp;
@@ -346,6 +347,7 @@
 					"$(PROJECT_DIR)/CakeTubeSDKDemo",
 				);
 				INFOPLIST_FILE = CakeTubeSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anchorfree.cttestapp;
