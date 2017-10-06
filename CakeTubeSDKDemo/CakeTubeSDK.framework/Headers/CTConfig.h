@@ -19,6 +19,7 @@ typedef void (^CTConfigBlock)(CTConfig *_Nonnull);
 @interface CTConfig : NSObject
 @property (nonnull, strong, nonatomic) NSString *baseUrl;
 @property (nonnull, strong, nonatomic) NSString *carrierId;
+@property (nonnull, strong, nonatomic) NSString *vpnProfileName;
 @property (nonatomic) CTVPNProtocol vpnProtocol;
 @property (nonatomic) BOOL debugLogging;
 

@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CakeTube.instance().configure(CTConfig.create { (c) in
             c.baseUrl = "https://backend.northghost.com"
             c.carrierId = "afdemo"
+            c.vpnProtocol = .ikEv2
+            c.vpnProfileName = "CakeTubeSDK App"
         })
 
         return true

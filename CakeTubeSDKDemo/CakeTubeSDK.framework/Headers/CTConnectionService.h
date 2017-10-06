@@ -15,6 +15,7 @@
 @interface CTConnectionService : CTConnectionServiceBase
 
 - (void)setVpnProtocol:(CTVPNProtocol)vpnProtocol;
+- (void)setName:(NSString *)vpnName;
 
 - (void)connectVPNWithCompletion:(void (^)(CTServerLocation *location, NSError *error))completion;
 @end

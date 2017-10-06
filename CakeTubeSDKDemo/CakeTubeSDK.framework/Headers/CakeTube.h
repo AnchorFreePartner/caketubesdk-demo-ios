@@ -13,7 +13,6 @@
 #import "CTUserProfile.h"
 #import "CTServerLocation.h"
 #import "CTCounters.h"
-#import "CTCredentials.h"
 #import "CTRemainingTraffic.h"
 #import "CTAuthMethod.h"
 #import "CTConfig.h"

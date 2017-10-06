@@ -26,23 +26,4 @@ FOUNDATION_EXPORT const unsigned char CakeTubeSDKVersionString[];
 #import "CTBundle.h"
 #import "CTVerifyResponse.h"
 #import "CTRemainingTraffic.h"
-
-#pragma - Platform specific
-
-#if TARGET_OS_IPHONE
-
-#pragma - iOS Specific Headers
-
 #import "CTConnectionService.h"
-
-#else
-
-#pragma - OS X Specific Headers
-
-#import "CTConnectionService.h"
-#import "CTOpenVPNLauncher.h"
-#import "CTOpenVPNManager.h"
-#import "CTHelper.h"
-#import "CTHelperManager.h"
-
-#endif
