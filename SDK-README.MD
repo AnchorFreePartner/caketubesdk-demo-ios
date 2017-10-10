@@ -17,7 +17,7 @@ The SDK provides API to authorize client users and gives them an ability to conn
 
 ### Creating application
 
-To start application development, you need to create an XCode application project. 
+To start application development, you need to create a XCode application project. 
 
 At the end of this step you will have a new target: 
 * **Application** target
@@ -26,7 +26,7 @@ At the end of this step you will have a new target:
 
 For **Application** target do the following
 
-Add following system frameworks to your project dependendencies:
+Add following system frameworks to your project dependencies:
 - For iOS: CakeTubeSDK.framework
 - For macOS: CakeTubeSDKmacOS.framework
 - If it's a Swift project, also add this framework to Embedded binaries
@@ -85,11 +85,11 @@ To connect VPN use CakeTube function `startVpn`. When VPN is started or error oc
         }
     }
 
-When you receieve notification, get updated VPN status from `CakeTube.instance().vpnStatus` status property and handle this status as designed by your app.
+When you receive notification, get updated VPN status from `CakeTube.instance().vpnStatus` status property and handle this status as designed by your app.
 
 ### Error Handling
 
-Most of `CakeTube` calls are accepting completion blocks with errors. If an error occurs, you will recieve non-nil `NSError` object with explanation. Errors could be handled by code, that is defined in `CTCakeTubeVPNErrorCode` or `CTCakeTubeApiErrorCode`. In some cases, there is NSUnderlyingError instance inside NSError. See *CakeTube.h* for more info.
+Most of `CakeTube` calls are accepting completion blocks with errors. If an error occurs, you will receive non-nil `NSError` object with an explanation. Errors could be handled by code, that is defined in `CTCakeTubeVPNErrorCode` or `CTCakeTubeApiErrorCode`. In some cases, there is NSUnderlyingError instance inside NSError. See *CakeTube.h* for more info.
 
 # API Documentation
 
@@ -101,13 +101,13 @@ Most of `CakeTube` calls are accepting completion blocks with errors. If an erro
 CakeTube class is a singleton. Use CTConfig object instance to initialize CakeTube. The fastest way to create CTConfig object instance is to use `CTConfig.create { (c) in ... }`.
 
 `- (BOOL)isLoggedIn;`
-Checks if user is logged in.
+Checks if the user is logged in.
 
 `- (void)loginWithMethod:(CTAuthMethod *)method completion:(nullable CTLoginCompletion)completion;`
 Login and obtain CTUserProfile object that describes CakeTube VPN user.
 
 `- (void)startVPN:(nullable CTStartVPNCompletion)completion;`
-Starts VPN with completion. During VPN start iOS / macOS may ask for VPN permission from user. Callback provides `CTServerLocation` instance that describes server user connected to.
+Starts VPN with completion. During VPN start iOS / macOS may ask for VPN permission from the user. Callback provides `CTServerLocation` instance that describes server user connected to.
 
 `- (void)stopVPN:(nullable CTDefaultCompletion)completion;`
 Stops current VPN session.
@@ -175,14 +175,10 @@ Custom auth. If you are using custom authentication scheme, use this method.
 
 ### CTConfig
 
-`AFConfig` is a class that configures `AFHydra` instance. Created by `AFConfigBuilder`
-
-### AFConfigBuilder
-
-Creates AFConfig instance. There are 4 mandatory properties you need to configure:
+`CTConfig` is a class that configures `CakeTube` instance. Created by `AFConfigBuilder`
 
 `@property (strong, nonatomic) NSString *baseUrl;`  
-This is a Host URL of primary server. Provided by Anchorfree Inc.
+This is a Host URL of the primary server. Provided by Anchorfree Inc.
 
 `@property (strong, nonatomic) NSString *carrierId;`  
 This is your unique service identifier. Provided by Anchorfree Inc.
@@ -206,19 +202,19 @@ User's locale that was used during registration.
 User name. Generated for anonymous users.
 
 `@property(strong, nonatomic) NSDictionary *socialProfiles;`
-List of social profiles associated with user. Non-empty only if social sign in was used.
+List of social profiles associated with the user. Non-empty only if a social sign-in was used.
 
 `@property(strong, nonatomic, readonly) NSString *email;`
-Email, if available by social provider.
+Email, if available by the social provider.
 
 `@property(strong, nonatomic) NSString *registrationTime;`
-Time user signed in for a first time.
+Time user signed in for the first time.
 
 `@property(strong, nonatomic) NSNumber *activatedDevices;`
-Number of devices user is using (signed in from).
+A number of devices the user is using (signed in from).
 
 `@property(strong, nonatomic) NSNumber *activeSessions;`
-Number of active session user has (signed in right now).
+A number of active session user has (signed in right now).
 
 `@property(strong, nonatomic) NSString *authMethod;`
 Auth method that was used during sign in.
@@ -242,7 +238,7 @@ Bytes received in current session
 ### CTRemainingTraffic
 
 `@property(nullable, strong, nonatomic) NSNumber *trafficStart;`
-UNIX timestamp when current session was started.
+UNIX timestamp when the current session was started.
 
 `@property(nullable, strong, nonatomic) NSNumber *trafficLimit;`
 Amount of bytes available to current User
@@ -271,7 +267,7 @@ Attempting to do an action that requires user to be signed in
 Current user doesn't exist
 
 `CTCakeTubeApiErrorCodeParameters`
-Required API paramters are missing.
+Required API parameters are missing.
 
 `CTCakeTubeVPNErrorCodeUndefined`
 Unknown VPN error. Please report such errors to Anchorfree Inc. team.
