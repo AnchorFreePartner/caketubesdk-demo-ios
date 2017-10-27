@@ -70,7 +70,7 @@ class ViewController: UIViewController, CountryControllerDelegate {
         if self.isLoggedIn {
             CakeTube.instance().logout { [unowned self] (e) in
                 if let ex = e {
-                    print("Logout error: \(ex)")
+                    self.showError("Logout error: \(ex)")
                 } else {
                     print("Logout success")
                 }
@@ -78,9 +78,9 @@ class ViewController: UIViewController, CountryControllerDelegate {
                 self.updateUi()
             }
         } else {
-            CakeTube.instance().login(with: CTAuthMethod.anonymous(), completion: { (user, e) in
+            CakeTube.instance().login(with: CTAuthMethod.anonymous(), completion: { [unowned self] (user, e) in
                 if let ex = e {
-                    print("Login error: \(ex)")
+                    self.showError("Login error: \(ex)")
                 } else {
                     print("Login success")
                 }
@@ -92,17 +92,17 @@ class ViewController: UIViewController, CountryControllerDelegate {
     
     @IBAction func toggleConnect(_ sender: UIButton) {
         if !self.isVpnConnected {
-            CakeTube.instance().startVPN { (location, e) in
+            CakeTube.instance().startVPN { [unowned self] (location, e) in
                 if let ex = e {
-                    print("Start VPN error: \(ex)")
+                    self.showError("Start VPN error: \(ex)")
                 } else {
                     print("Start VPN success, country: \(location?.country ?? "n/a")")
                 }
             }
         } else {
-            CakeTube.instance().stopVPN { (e) in
+            CakeTube.instance().stopVPN { [unowned self] (e) in
                 if let ex = e {
-                    print("Stop VPN error: \(ex)")
+                    self.showError("Stop VPN error: \(ex)")
                 } else {
                     print("Stop VPN success")
                 }
@@ -174,6 +174,18 @@ class ViewController: UIViewController, CountryControllerDelegate {
     func locationChanged(_ newLocation: CTServerLocation?) {
         self.location = newLocation
         updateUi()
+    }
+    
+    func showError(_ message: String) {
+        print(message)
+        
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .default) {
+            (result : UIAlertAction) -> Void in
+        }
+        
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
