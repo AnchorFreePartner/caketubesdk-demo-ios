@@ -31,6 +31,9 @@ Add following system frameworks to your project dependencies:
 - For macOS: CakeTubeSDKmacOS.framework
 - If it's a Swift project, also add this framework to Embedded binaries
 
+In your project: *Project > Build Settings*:
+- Set *Other Linker Flags* to `-ObjC`.
+
 ### Configure App ID
 
 Go to [Apple Developer Portal](https://developer.apple.com/) and create (if not yet created) an application ID under *Identifiers > App IDs* section.
@@ -189,8 +192,35 @@ The name of your VPN profile, visible in iOS Settings > VPN section.
 `@property (nonatomic) CTVPNProtocol vpnProtocol;`
 VPN protocol to use. Use CTVPNProtocolIKEv2 for most cases.
 
+`@property (nonatomic, strong, nullable) CTOnDemandRules *onDemandRules;`
+Specifies on-demand VPN rules. See `CTOnDemandRules`.
+
+`@property (nonatomic, assign) BOOL onDemandEnabled;`
+Enables or disables on-demand VPN feature. If this property is `YES`, but no rules is provided, default rules are used.
+
 `+ (nonnull CTConfig *)create:(nonnull CTConfigBlock)configBlock;`
 Factory method to create config.
+
+### CTOnDemandRules
+
+`CTOnDemandRules` class provides abstraction for on-demand VPN behavior configuration. 
+
+An instance of this class should be assigned to `onDemandRules` property of `CTConfig` instance. For these rules to be applied, `onDemandEnabled` property is also has to be set to `YES`. If `onDemandRules` is `nil`, but `onDemandEnabled` is set to `YES`, default rules will be used.
+
+`@property(nonatomic) BOOL alwaysOnWiFi;`
+Enable VPN automatically when WiFi is on. Default value is `true`.
+
+`@property(nonatomic) BOOL alwaysOnCellular;`
+Enable VPN automatically when cellular data is on (WiFi is off). Default value is `true`. (This property is only available for iOS).
+
+`@property(nullable, strong, nonatomic) NSURL *probeUrl;`
+The URL to check before starting VPN. If URL responds with code 200, VPN is started. If valus is `nil`, probing is disabled. Default value is `nil`.
+
+`+ (instancetype)defaultRules;`
+Create default on-demand rules instance.
+
+`+ (instancetype)defaultRulesWithProbeURLString:(NSString *)probeURLString;`
+Create default on-demand rules instance with probe URL string.
 
 ### CTUserProfile
 
@@ -269,6 +299,33 @@ Current user doesn't exist
 `CTCakeTubeApiErrorCodeParameters`
 Required API parameters are missing.
 
+`CTCakeTubeApiErrorCodeVpnNotVerified`
+VPN is not verified.
+
+`CTCakeTubeApiErrorCodeVpnSessionNotEstablished`
+VPN session is not yet established.
+
+`CTCakeTubeApiErrorCodeSessionsExceed`
+Number of available sessions exceeded the limit.
+
+`CTCakeTubeApiErrorCodeUserSuspended`
+User has been suspended.
+
+`CTCakeTubeApiErrorCodeDevicesExceed`
+Number of available registered devices is exceeded.
+
+`CTCakeTubeApiErrorCodeTrafficExceed`
+Available traffic has reached its limit.
+
+`CTCakeTubeApiErrorCodeUnauthorized`
+Unauthrorized access.
+
+`CTCakeTubeApiErrorCodeServerUnavailable`
+Requested server is unavailable.
+
+`CTCakeTubeApiErrorCodeClientError`
+Some client error,
+
 `CTCakeTubeVPNErrorCodeUndefined`
 Unknown VPN error. Please report such errors to Anchorfree Inc. team.
 
@@ -280,3 +337,9 @@ Attempting to start already connected VPN.
 
 `CTCakeTubeVPNErrorCodeAlreadyDisconnected`
 Attempting to stop already disconnected VPN.
+
+`CTCakeTubeVPNErrorCodeConnectInvalid`
+Invalid connection.
+
+`CTCakeTubeVPNErrorCodeDisconnectInvalid`
+Invalid disconnection.

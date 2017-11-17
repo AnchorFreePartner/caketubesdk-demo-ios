@@ -16,16 +16,7 @@
 #import "CTRemainingTraffic.h"
 #import "CTAuthMethod.h"
 #import "CTConfig.h"
-
-typedef void (^CTDefaultCompletion)(NSError *_Nullable error);
-typedef void (^CTLoginCompletion)(CTUserProfile *_Nullable subscriber, NSError *_Nullable error);
-typedef void (^CTSubscriberCompletion)(CTUserProfile *_Nullable subscriber, NSError *_Nullable error);
-typedef void (^CTServersCompletion)(NSArray<CTServerLocation *> *_Nullable servers, NSError *_Nullable error);
-typedef void (^CTCountersCompletion)(CTCounters *_Nullable countersResponse, NSError *_Nullable error);
-typedef void (^CTVpnStatusCompletion)(BOOL isVpn, NSError *_Nullable error);
-typedef void (^CTRemainingTrafficCompletion)(CTRemainingTraffic *_Nullable remainingTraffic, NSError *_Nullable error);
-typedef void (^CTPurchaseCompletion)(NSString *_Nullable status, NSError *_Nullable error);
-typedef void (^CTStartVPNCompletion)(CTServerLocation *_Nullable server, NSError *_Nullable error);
+#import "CTOnDemandRules.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,10 +28,20 @@ typedef NS_ENUM(NSInteger, CTCakeTubeApiErrorCode) {
     /*! @const CTCakeTubeApiErrorCodeSerializationError API serialization/deserialization error */
     CTCakeTubeApiErrorCodeSerializationError = 302,
     CTCakeTubeApiErrorCodeApiError = 303,
+    
     CTCakeTubeApiErrorCodeNilToken = 600,
     CTCakeTubeApiErrorCodeNilUser = 601,
     CTCakeTubeApiErrorCodeParameters = 602,
-    CTCakeTubeApiErrorCodeVpnNotVerified = 603
+    CTCakeTubeApiErrorCodeVpnNotVerified = 603,
+    CTCakeTubeApiErrorCodeVpnSessionNotEstablished = 604,
+    
+    CTCakeTubeApiErrorCodeSessionsExceed = 705,
+    CTCakeTubeApiErrorCodeUserSuspended = 706,
+    CTCakeTubeApiErrorCodeDevicesExceed = 707,
+    CTCakeTubeApiErrorCodeTrafficExceed = 708,
+    CTCakeTubeApiErrorCodeUnauthorized = 709,
+    CTCakeTubeApiErrorCodeServerUnavailable = 710,
+    CTCakeTubeApiErrorCodeClientError = 711,
 };
 
 extern NSString *const kCTCakeTubeVPNErrorDomain;
@@ -51,8 +52,18 @@ typedef NS_ENUM(NSInteger, CTCakeTubeVPNErrorCode) {
     CTCakeTubeVPNErrorCodeAlreadyConnected = 502,
     CTCakeTubeVPNErrorCodeAlreadyDisconnected = 503,
     CTCakeTubeVPNErrorCodeConnectInvalid = 504,
-    CTCakeTubeVPNErrorCodeDisconnectInvalid = 505
+    CTCakeTubeVPNErrorCodeDisconnectInvalid = 505,
 };
+
+typedef void (^CTDefaultCompletion)(NSError *_Nullable error);
+typedef void (^CTLoginCompletion)(CTUserProfile *_Nullable subscriber, NSError *_Nullable error);
+typedef void (^CTSubscriberCompletion)(CTUserProfile *_Nullable subscriber, NSError *_Nullable error);
+typedef void (^CTServersCompletion)(NSArray<CTServerLocation *> *_Nullable servers, NSError *_Nullable error);
+typedef void (^CTCountersCompletion)(CTCounters *_Nullable countersResponse, NSError *_Nullable error);
+typedef void (^CTVpnStatusCompletion)(BOOL isVpn, NSError *_Nullable error);
+typedef void (^CTRemainingTrafficCompletion)(CTRemainingTraffic *_Nullable remainingTraffic, NSError *_Nullable error);
+typedef void (^CTPurchaseCompletion)(NSString *_Nullable status, NSError *_Nullable error);
+typedef void (^CTStartVPNCompletion)(CTServerLocation *_Nullable server, NSError *_Nullable error);
 
 /**
  Observe NSNotificationCenter.defaultCenter for this notification to obtain VPN status changes. Updated status
@@ -69,6 +80,8 @@ typedef NS_ENUM(NSInteger, CTVPNStatus) {
     CTVPNStatusDisconnecting = 5,
 };
 
+extern NSString *const CTCakeTubeVersion;
+
 @interface CakeTube : NSObject
 
 @property (readonly) CTVPNStatus vpnStatus;
@@ -84,6 +97,8 @@ typedef NS_ENUM(NSInteger, CTVPNStatus) {
 - (void)startVPN:(nullable CTStartVPNCompletion)completion;
 
 - (void)stopVPN:(nullable CTDefaultCompletion)completion;
+
+- (void)installVPNProfile:(nullable CTDefaultCompletion)completion;
 
 - (void)removeVPNProfile:(nullable CTDefaultCompletion)completion;
 
@@ -112,9 +127,9 @@ typedef NS_ENUM(NSInteger, CTVPNStatus) {
  @param location - Server location, obtained with [CakeTube getServers:] or [CTServerLocation optimal].
  nil value means the location will be optimal.
  */
-- (void)setServer:(nullable CTServerLocation *)location;
+- (void)setServer:(nonnull CTServerLocation *)location;
 
-- (nullable CTServerLocation *)getServer;
+- (nonnull CTServerLocation *)getServer;
 
 - (nullable NSString *)accessToken;
 

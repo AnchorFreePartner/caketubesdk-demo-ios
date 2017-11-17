@@ -14,6 +14,8 @@ typedef NS_ENUM(NSInteger, CTVPNProtocol) {
 };
 
 @class CTConfig;
+@class CTOnDemandRules;
+
 typedef void (^CTConfigBlock)(CTConfig *_Nonnull);
 
 @interface CTConfig : NSObject
@@ -22,6 +24,9 @@ typedef void (^CTConfigBlock)(CTConfig *_Nonnull);
 @property (nonnull, strong, nonatomic) NSString *vpnProfileName;
 @property (nonatomic) CTVPNProtocol vpnProtocol;
 @property (nonatomic) BOOL debugLogging;
+
+@property (nonatomic, strong, nullable) CTOnDemandRules *onDemandRules;
+@property (nonatomic, assign) BOOL onDemandEnabled;
 
 + (nonnull CTConfig *)create:(nonnull CTConfigBlock)configBlock;
 

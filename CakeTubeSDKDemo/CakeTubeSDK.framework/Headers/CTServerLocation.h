@@ -13,6 +13,8 @@
  */
 @property(strong, nonatomic) NSNumber *servers;
 
+@property(assign, nonatomic, readonly, getter=isOptimal) BOOL optimal;
+
 + (CTServerLocation *)fromDict:(NSDictionary *)dict;
 
 + (CTServerLocation *)optimal;
@@ -21,4 +23,5 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder;
 
+- (BOOL)isEqualToLocation:(CTServerLocation *)otherLocation;
 @end

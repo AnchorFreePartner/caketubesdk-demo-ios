@@ -37,7 +37,7 @@ class ViewController: UIViewController, CountryControllerDelegate {
             return CakeTube.instance().getServer()
         }
         set {
-            CakeTube.instance().setServer(newValue)
+            CakeTube.instance().setServer(newValue!)
         }
     }
     

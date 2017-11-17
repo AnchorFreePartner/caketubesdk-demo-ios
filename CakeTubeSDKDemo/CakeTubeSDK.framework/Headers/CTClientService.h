@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_END
 
 - (void)getCredentialsWithCompletion:(nullable CTCredentialsBlock)completion;
 
-- (void)getCredentialsWithConfiguration:(CTProtocolConfiguration *)config completion:(CTCredentialsBlock)completion;
+- (void)getCredentialsWithConfiguration:(nonnull CTProtocolConfiguration *)config completion:(nullable CTCredentialsBlock)completion;
 
 - (void)checkCurrentCredentialsWithCompletion:(nullable void (^)(NSError * _Nullable error))completion;
 
@@ -97,9 +97,9 @@ NS_ASSUME_NONNULL_END
 - (void)checkPurchaseWithReceipt:(nonnull NSString *)receipt
                       completion:(nullable CTPurchaseBlock)completion;
 
-- (void)setServer:(nullable CTServerLocation *)location;
+- (void)setServer:(nonnull CTServerLocation *)location;
 
-- (nullable CTServerLocation *)getServer;
+- (nonnull CTServerLocation *)getServer;
 
 - (nullable NSString *)accessToken;
 

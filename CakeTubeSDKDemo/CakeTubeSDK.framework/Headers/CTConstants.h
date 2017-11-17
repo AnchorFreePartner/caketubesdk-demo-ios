@@ -12,17 +12,3 @@
 
 #define CAKE_TUBE_HELPER_VERSION 3
 #define CAKE_TUBE_SDK_VERSON @"1.0.0"
-
-
-extern const NSInteger CTNetworkClientErrorNilToken;
-extern const NSInteger CTNetworkClientErrorNilUser;
-extern const NSInteger CTNetworkClientErrorNilParameters;
-extern const NSInteger CTNetworkClientErrorVpnNotVerified;
-
-extern const NSInteger CTConnectionServiceErrorUndefined;
-extern const NSInteger CTConnectionServiceErrorTimeout;
-extern const NSInteger CTConnectionServiceErrorAlreadyConnected;
-extern const NSInteger CTConnectionServiceErrorAlreadyDisconnected;
-extern const NSInteger CTConnectionServiceErrorConnectInvalid;
-extern const NSInteger CTConnectionServiceErrorDisconnectInvalid;
-

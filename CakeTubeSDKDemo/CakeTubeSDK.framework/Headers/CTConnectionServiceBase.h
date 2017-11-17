@@ -12,8 +12,6 @@
 extern NSString *CTConnectionServiceStatusDidChangeNotification;
 extern NSString *CTConnectionServiceTrafficInformationDidChangeNotification;
 
-extern NSString *const CTConnectionServiceErrorDomain;
-
 typedef NS_ENUM(NSInteger, CTConnectionServiceStatus) {
     CTConnectionServiceStatusUndefined = 0,
     CTConnectionServiceStatusInvalid = 1,
@@ -36,4 +34,5 @@ typedef NS_ENUM(NSInteger, CTConnectionServiceStatus) {
 
 - (void)removeProfileFromPreferencesWithCompletion:(void (^)(NSError *error))completion;
 
+- (void)installProfileIntoPreferencesWithCompletion:(void (^)(NSError *error))completion;
 @end

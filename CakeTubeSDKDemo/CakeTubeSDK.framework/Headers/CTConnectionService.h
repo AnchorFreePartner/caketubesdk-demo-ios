@@ -10,12 +10,15 @@
 #import "CTConfig.h"
 
 @class CTServerLocation;
-
+@class CTOnDemandRules;
 
 @interface CTConnectionService : CTConnectionServiceBase
 
 - (void)setVpnProtocol:(CTVPNProtocol)vpnProtocol;
 - (void)setName:(NSString *)vpnName;
+
+@property(atomic, strong) CTOnDemandRules *onDemandRules;
+@property(atomic, assign) BOOL onDemandEnabled;
 
 - (void)connectVPNWithCompletion:(void (^)(CTServerLocation *location, NSError *error))completion;
 @end
