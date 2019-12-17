@@ -9,7 +9,7 @@ This is a demo application for iOS with basic usage of CakeTube VPN SDK.
 
 # SDK Quick Installation Guide
 
-Download latest SDK: [CakeTubeSDK for iOS](https://firebasestorage.googleapis.com/v0/b/web-portal-for-partners.appspot.com/o/products%2FCakeTubeSDK-iOS.framework.zip?alt=media)
+Download latest SDK: [CakeTubeSDK for iOS](https://firebasestorage.googleapis.com/v0/b/web-portal-for-partners.appspot.com/o/products%2FCakeTubeSDK%20iOS.zip?alt=media)
 
 ## Install CakeTube SDK
 
@@ -29,7 +29,6 @@ In your AppDelegate object initialize SDK:
 	CakeTube.instance().configure(CTConfig.create { (c) in
 	    c.baseUrl = "BASE_URL"
 	    c.carrierId = "CARRIER_ID"
-	    c.vpnProtocol = .ikEv2 // preferred protocol for iOS
 	    c.vpnProfileName = "YOUR_APP_NAME" // will be shown in System Settings -> VPN
 	})
 
