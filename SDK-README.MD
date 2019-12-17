@@ -1,8 +1,8 @@
 # CakeTubeSDK for iOS & macOS
 
 Download latest SDK: 
-- [CakeTubeSDK for iOS](https://firebasestorage.googleapis.com/v0/b/web-portal-for-partners.appspot.com/o/products%2FCakeTubeSDK-iOS.framework.zip?alt=media)
-- [CakeTubeSDK for macOS](https://firebasestorage.googleapis.com/v0/b/web-portal-for-partners.appspot.com/o/products%2FCakeTubeSDKmacOS.framework.zip?alt=media)
+- [CakeTubeSDK for iOS](https://firebasestorage.googleapis.com/v0/b/web-portal-for-partners.appspot.com/o/products%2FCakeTubeSDK%20iOS.zip?alt=media)
+- [CakeTubeSDK for macOS](https://firebasestorage.googleapis.com/v0/b/web-portal-for-partners.appspot.com/o/products%2FCakeTubeSDK-macOS.zip?alt=media)
 
 CakeTube for iOS & macOS (The SDK) is a part of AnchorFree SDK. It contains client-side libraries and server-side applications needed to implement custom VPN infrastructure.
 
@@ -63,7 +63,6 @@ To initialize SDK do the following:
     CakeTube.instance().configure(CTConfig.create { (c) in
         c.baseUrl = "https://backend.northghost.com"
         c.carrierId = "afdemo"
-        c.vpnProtocol = .ikEv2
         c.vpnProfileName = "My Awesome Application"
     })
 
@@ -189,9 +188,6 @@ This is your unique service identifier. Provided by Anchorfree Inc.
 `@property (nonnull, strong, nonatomic) NSString *vpnProfileName;`
 The name of your VPN profile, visible in iOS Settings > VPN section.
 
-`@property (nonatomic) CTVPNProtocol vpnProtocol;`
-VPN protocol to use. Use CTVPNProtocolIKEv2 for most cases.
-
 `@property (nonatomic, strong, nullable) CTOnDemandRules *onDemandRules;`
 Specifies on-demand VPN rules. See `CTOnDemandRules`.
 
@@ -240,6 +236,12 @@ Email, if available by the social provider.
 `@property(strong, nonatomic) NSString *registrationTime;`
 Time user signed in for the first time.
 
+`@property(strong, nonatomic) NSString *connectionTime;`
+Time when user connected.
+
+`@property(strong, nonatomic) NSNumber *condition;`
+Represent value 0 or 1 which enable/disable subscriber.
+
 `@property(strong, nonatomic) NSNumber *activatedDevices;`
 A number of devices the user is using (signed in from).
 
@@ -249,6 +251,8 @@ A number of active session user has (signed in right now).
 `@property(strong, nonatomic) NSString *authMethod;`
 Auth method that was used during sign in.
 
+`@property(strong, nonatomic) NSString *extref;`
+External reference.
 
 ### CTCountry
 
